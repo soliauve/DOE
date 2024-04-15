@@ -1,3 +1,6 @@
+#NOTE: THIS CODE WAS GENERATED THROUGH CHATGPT QUERY.
+
+
 # Assuming 'mod0' is your linear regression model
 # Example: mod0 <- lm(y ~ x1 + x2, data = mydata)
 
