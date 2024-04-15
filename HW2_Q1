@@ -1,0 +1,49 @@
+# Assuming 'mod0' is your linear regression model
+# Example: mod0 <- lm(y ~ x1 + x2, data = mydata)
+
+# Extract residuals from the model
+residuals <- residuals(mod0)
+
+# Construct a normal probability plot of residuals
+qqnorm(residuals, main = "Normal Probability Plot of Residuals",
+       xlab = "Theoretical Quantiles", ylab = "Sample Quantiles")
+qqline(residuals)  # Add a reference line to the plot
+
+# Alternatively, you can use the car package for more advanced diagnostics
+# Install and load the car package if not already installed
+# install.packages("car")
+library(car)
+
+# Normality test of residuals using QQ plot
+qqPlot(mod0, main = "Normal Probability Plot of Residuals")
+
+#***Plotting residuals versus the predicted tensile strength.***
+
+# Assuming 'mod0' is your linear regression model
+# Example: mod0 <- lm(Tensile_Strength ~ Mixing_Technique, data = cement_data)
+
+# Extract residuals and fitted values (predicted values) from the model
+residuals <- residuals(mod0)
+fitted_values <- fitted(mod0)
+
+# Plot residuals versus fitted values
+plot(fitted_values, residuals,
+     main = "Residuals vs. Fitted Values",
+     xlab = "Fitted Values (Predicted Tensile Strength)",
+     ylab = "Residuals")
+
+# Add a horizontal line at y = 0 for reference
+abline(h = 0, col = "red", lty = 2)
+
+# Alternatively, you can use the ggplot2 package for more customization
+# Install and load the ggplot2 package if not already installed
+# install.packages("ggplot2")
+library(ggplot2)
+
+# Create a ggplot scatter plot of residuals vs. fitted values
+ggplot(data = data.frame(Fitted = fitted_values, Residuals = residuals), aes(x = Fitted, y = Residuals)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  labs(title = "Residuals vs. Fitted Values",
+       x = "Fitted Values (Predicted Tensile Strength)",
+       y = "Residuals")
