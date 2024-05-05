@@ -1,3 +1,15 @@
+#insert all neccessary libraries
+
+library(multcomp) #multiple comparieson
+library(daewr) #design and experiment with r
+library(gmodels) #graph models.
+library(agricolae)
+library(ggplot2)
+library(lme4)
+library(nlme)
+library(lsmeans)
+library(MASS)
+
 % Water-Deprived Rats (Randomized Complete Block Design)
 #accessing built-in data called drug
 table(drug$dose); table(drug$rat); summary(drug$rate)
