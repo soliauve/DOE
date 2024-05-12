@@ -13,9 +13,10 @@ library(MASS)
 PSI <- as.factor(rep(c(8500,8700,8900,9100),times=6));
 Batch <- as.factor(rep(1:6,each=4))
 Y <- c(90.3,92.5,85.5,82.5,89.2,89.5,90.8,89.5,98.2,90.6,89.6,85.6,93.9,94.7,86.2,87.4,87.4,87.0,88.0,78.9,97.9,95.8,93.4,90.7)
-       
 Vascular <- data.frame(Y,PSI,Batch) 
+
 head(Vascular) 
+
 table(PSI);table(Batch);summary(Y) 
 RCBD1 <- aov(Y~PSI+Batch); RCBD1 
 RCBD2 <- aov(Y~PSI+Error(Batch)); RCBD2 
